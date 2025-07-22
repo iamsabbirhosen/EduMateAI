@@ -1,3 +1,4 @@
+
 export interface Topic {
   id: string;
   name: string;
@@ -46,13 +47,13 @@ export const curriculumData: ClassLevel[] = [
                 id: 'newtons-1st-law',
                 name: "Newton's 1st Law",
                 name_bn: 'নিউটনের ১ম সূত্র',
-                pdfUrl: 'https://placehold.co/800x1100.pdf',
+                pdfUrl: '/materials/12/physics/newtonian-mechanics/newtons-1st-law/material.pdf',
               },
               {
                 id: 'newtons-2nd-law',
                 name: "Newton's 2nd Law",
                 name_bn: 'নিউটনের ২য় সূত্র',
-                pdfUrl: 'https://placehold.co/800x1100.pdf',
+                pdfUrl: '/materials/12/physics/newtonian-mechanics/newtons-2nd-law/material.pdf',
               },
             ],
           },
@@ -65,7 +66,7 @@ export const curriculumData: ClassLevel[] = [
                 id: 'zeroth-law',
                 name: "Zeroth Law of Thermodynamics",
                 name_bn: 'তাপগতিবিদ্যার শূন্যতম সূত্র',
-                pdfUrl: 'https://placehold.co/800x1100.pdf',
+                pdfUrl: '/materials/12/physics/thermodynamics/zeroth-law/material.pdf',
               },
             ]
           }
@@ -85,7 +86,7 @@ export const curriculumData: ClassLevel[] = [
                 id: 'differentiation',
                 name: "Differentiation",
                 name_bn: 'অন্তরীকরণ',
-                pdfUrl: 'https://placehold.co/800x1100.pdf',
+                pdfUrl: '/materials/12/math/calculus/differentiation/material.pdf',
               },
             ],
           },
@@ -112,7 +113,7 @@ export const curriculumData: ClassLevel[] = [
                 id: 'periodic-trends',
                 name: 'Periodic Trends',
                 name_bn: 'পর্যায়বৃত্ত ধর্ম',
-                pdfUrl: 'https://placehold.co/800x1100.pdf',
+                pdfUrl: '/materials/11/chemistry/periodic-table/periodic-trends/material.pdf',
               },
             ]
           }
@@ -139,7 +140,7 @@ export const curriculumData: ClassLevel[] = [
                 id: 'kazi-nazrul-islam',
                 name: 'Kazi Nazrul Islam',
                 name_bn: 'কাজী নজরুল ইসলাম',
-                pdfUrl: 'https://placehold.co/800x1100.pdf',
+                pdfUrl: '/materials/10/bangla/literature/kazi-nazrul-islam/material.pdf',
               },
             ]
           }

@@ -19,9 +19,10 @@ import { ChatBot } from '@/components/learn/chat-bot';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Book, Youtube, HelpCircle, Bot, MessageSquare } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import React from 'react';
 
 export default function LearnPage({ params }: { params: { slug: string[] } }) {
-  const { slug } = params;
+  const { slug } = React.use(params);
   const topicData = getTopicBySlug(slug);
   const { t, language } = useTranslation();
   const isBangla = language === 'Bangla';

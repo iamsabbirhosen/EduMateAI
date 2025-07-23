@@ -25,7 +25,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 type View = 'materials' | 'test' | 'ai-explanation' | 'chat';
 
 export default function LearnPage({ params }: { params: { slug: string[] } }) {
-  const slug = React.use(params.slug);
+  const slug = React.use(params).slug;
   const topicData = getTopicBySlug(slug);
   const { t, language } = useTranslation();
   const isBangla = language === 'Bangla';

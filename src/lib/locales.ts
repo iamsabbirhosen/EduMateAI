@@ -37,6 +37,7 @@ export const translations = {
     'subjects.title': 'Browse Your Subjects',
     'subjects.subtitle': 'Select a topic to start learning',
     'subjects.select_class': 'Select Class',
+    'subjects.no_class_assigned': 'No class has been assigned to your profile.',
     
     // Learn Page
     'learn.study_materials': 'Study Materials',
@@ -94,6 +95,7 @@ export const translations = {
     'subjects.title': 'আপনার বিষয় ব্রাউজ করুন',
     'subjects.subtitle': 'শেখা শুরু করতে একটি বিষয় নির্বাচন করুন',
     'subjects.select_class': 'শ্রেণী নির্বাচন করুন',
+    'subjects.no_class_assigned': 'আপনার প্রোফাইলে কোনো শ্রেণী বরাদ্দ করা হয়নি।',
 
     // Learn Page
     'learn.study_materials': '学习资料',

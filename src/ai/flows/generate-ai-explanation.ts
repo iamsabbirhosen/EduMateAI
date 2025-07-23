@@ -16,6 +16,7 @@ const GenerateAiExplanationInputSchema = z.object({
     .string()
     .describe('The content of the topic extracted from the PDF.'),
   language: z.enum(['Bangla', 'English']).describe('The language of the explanation.'),
+  mode: z.enum(['teacher', 'fun', 'simple']).describe('The teaching mode for the explanation.')
 });
 export type GenerateAiExplanationInput = z.infer<typeof GenerateAiExplanationInputSchema>;
 
@@ -28,17 +29,29 @@ export async function generateAiExplanation(input: GenerateAiExplanationInput): 
   return generateAiExplanationFlow(input);
 }
 
+const teacherPrompt = `You are an expert teacher explaining academic topics to students in a friendly, conversational, and human-like manner. Your explanation should be detailed and structured.`;
+const funPrompt = `You are a fun and engaging tutor who uses creative examples, analogies, and humor to explain topics. Make learning exciting!`;
+const simplePrompt = `You are a helpful assistant who can explain complex topics in the simplest way possible. Use very easy language and break everything down into small, digestible pieces.`;
+
+
 const prompt = ai.definePrompt({
   name: 'generateAiExplanationPrompt',
   input: {schema: GenerateAiExplanationInputSchema},
   output: {schema: GenerateAiExplanationOutputSchema},
-  prompt: `You are an expert teacher explaining academic topics to students in a friendly, conversational, and human-like manner.
+  prompt: `
+  {{#if (eq mode "teacher")}}
+    ${teacherPrompt}
+  {{else if (eq mode "fun")}}
+    ${funPrompt}
+  {{else if (eq mode "simple")}}
+    ${simplePrompt}
+  {{/if}}
 
   Based on the topic content below, generate a detailed explanation in {{{language}}}.
 
   Your explanation should include:
   1.  **Topic Definition:** A clear and easy-to-understand definition of the main topic.
-  2.  **Laws Breakdown:** If there are any laws or principles, break them down step-by-step. Explain the concepts behind them.
+  2.  **Laws Breakdown:** If there are any laws or principles, break them down step-by-step. Explain the concepts behind them. Use examples.
   3.  **Sample Question Patterns:** Provide a few sample questions (and their patterns/types) that are commonly asked from this topic in exams.
 
   Topic Content:

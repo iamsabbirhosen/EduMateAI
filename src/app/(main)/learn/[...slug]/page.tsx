@@ -38,7 +38,7 @@ export default function LearnPage({ params }: { params: { slug: string[] } }) {
 
   const { classLevel, subject, chapter, topic } = topicData;
   const topicName = isBangla ? topic.name_bn : topic.name;
-  const mockPdfContent = `Content from PDF for topic: ${topic.name}. This text is used to simulate content extraction for AI processing.`;
+  const mockPdfContent = `Content from PDF for topic: ${topic.name}. This is used to simulate content extraction for AI processing.`;
   
   const views = [
     { id: 'materials', label: t('learn.study_materials'), icon: Book },

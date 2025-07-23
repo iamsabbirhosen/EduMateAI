@@ -62,6 +62,16 @@ export const translations = {
     'learn.chat.title': 'Ask Follow-up',
     'learn.chat.placeholder': 'Type your question here...',
     'learn.chat.send': 'Send',
+
+    // Profile Page
+    'profile.title': 'Your Profile',
+    'profile.subtitle': 'View and manage your profile information and statistics.',
+    'profile.info.title': 'Profile Information',
+    'profile.info.name': 'Name',
+    'profile.info.email': 'Email',
+    'profile.info.class': 'Class',
+    'profile.info.role': 'Role',
+    'profile.stats.title': 'Your Statistics',
   },
   bn: {
     // Login
@@ -126,6 +136,16 @@ export const translations = {
     'learn.chat.title': 'প্রশ্ন জিজ্ঞাসা করুন',
     'learn.chat.placeholder': 'আপনার প্রশ্ন এখানে টাইপ করুন...',
     'learn.chat.send': 'পাঠান',
+
+    // Profile Page
+    'profile.title': 'আপনার প্রোফাইল',
+    'profile.subtitle': 'আপনার প্রোফাইল তথ্য এবং পরিসংখ্যান দেখুন এবং পরিচালনা করুন।',
+    'profile.info.title': 'প্রোফাইল তথ্য',
+    'profile.info.name': 'নাম',
+    'profile.info.email': 'ইমেইল',
+    'profile.info.class': 'শ্রেণী',
+    'profile.info.role': 'ভূমিকা',
+    'profile.stats.title': 'আপনার পরিসংখ্যান',
   },
 };
 

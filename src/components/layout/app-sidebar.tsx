@@ -20,7 +20,7 @@ export function AppSidebar() {
   const navItems = [
     { href: '/dashboard', icon: Home, label: t('sidebar.dashboard') },
     { href: '/subjects', icon: Book, label: t('sidebar.subjects') },
-    { href: '#', icon: User, label: t('sidebar.profile'), disabled: true },
+    { href: '/profile', icon: User, label: t('sidebar.profile') },
   ];
 
   return (

@@ -52,7 +52,7 @@ export default function LearnPage({ params }: { params: { slug: string[] } }) {
       case 'materials':
         return (
           <Card>
-            <CardContent className="p-2 md:p-4">
+            <CardContent className="p-0">
               <PdfViewer pdfUrl={topic.pdfUrl} />
             </CardContent>
           </Card>

@@ -32,9 +32,14 @@ const prompt = ai.definePrompt({
   name: 'generateAiExplanationPrompt',
   input: {schema: GenerateAiExplanationInputSchema},
   output: {schema: GenerateAiExplanationOutputSchema},
-  prompt: `You are an expert teacher explaining academic topics to students.
+  prompt: `You are an expert teacher explaining academic topics to students in a friendly, conversational, and human-like manner.
 
-  Based on the topic content below, generate a clear and concise explanation in {{{language}}}.
+  Based on the topic content below, generate a detailed explanation in {{{language}}}.
+
+  Your explanation should include:
+  1.  **Topic Definition:** A clear and easy-to-understand definition of the main topic.
+  2.  **Laws Breakdown:** If there are any laws or principles, break them down step-by-step. Explain the concepts behind them.
+  3.  **Sample Question Patterns:** Provide a few sample questions (and their patterns/types) that are commonly asked from this topic in exams.
 
   Topic Content:
   {{topicContent}}`,

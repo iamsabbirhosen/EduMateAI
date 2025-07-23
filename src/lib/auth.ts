@@ -2,7 +2,7 @@ export interface User {
   id: string;
   email: string;
   name: string;
-  role: 'student' | 'teacher';
+  role: 'student';
   language: 'Bangla' | 'English';
   class?: number;
 }
@@ -31,12 +31,5 @@ export const DUMMY_USERS: User[] = [
     role: 'student',
     language: 'Bangla',
     class: 10,
-  },
-  {
-    id: '4',
-    email: 'teacher@eduapp.com',
-    name: 'Teacher',
-    role: 'teacher',
-    language: 'English',
   },
 ];

@@ -45,11 +45,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (foundUser) {
       setUser(foundUser);
       localStorage.setItem('edumate-user', JSON.stringify(foundUser));
-      if (foundUser.role === 'teacher') {
-        router.push('/teacher/dashboard');
-      } else {
-        router.push('/dashboard');
-      }
+      router.push('/dashboard');
     } else {
       // In a real app, you'd show an error.
       console.error('User not found');

@@ -50,10 +50,6 @@ export default function ProfilePage() {
                   <span className="font-semibold">{t('profile.info.class')}: </span>
                   <span className="text-muted-foreground">{user.class}</span>
                 </div>
-                <div>
-                  <span className="font-semibold">{t('profile.info.role')}: </span>
-                  <span className="text-muted-foreground capitalize">{user.role}</span>
-                </div>
                  <div>
                   <span className="font-semibold">{t('login.language')}: </span>
                   <span className="text-muted-foreground capitalize">{user.language}</span>

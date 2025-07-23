@@ -133,7 +133,7 @@ export function LoginForm() {
           {t('login.demo.title')}
         </p>
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
-          {DUMMY_USERS.filter(u => u.role === 'student').map(user => (
+          {DUMMY_USERS.map(user => (
             <Button
               key={user.id}
               variant="outline"
@@ -144,14 +144,6 @@ export function LoginForm() {
             </Button>
           ))}
         </div>
-        <Button
-          variant="secondary"
-          className="w-full"
-          onClick={() => handleDemoLogin('teacher@eduapp.com')}
-          disabled={isLoading}
-        >
-          Teacher
-        </Button>
       </div>
     </div>
   );

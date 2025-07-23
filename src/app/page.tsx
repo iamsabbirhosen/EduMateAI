@@ -11,11 +11,7 @@ export default function Home() {
   useEffect(() => {
     if (!loading) {
       if (user) {
-        if (user.role === 'teacher') {
-          router.replace('/teacher/dashboard');
-        } else {
-          router.replace('/dashboard');
-        }
+        router.replace('/dashboard');
       } else {
         router.replace('/login');
       }

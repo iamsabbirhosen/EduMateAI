@@ -1,0 +1,15 @@
+{
+  "/(auth)/login/page": "app/(auth)/login/page.js",
+  "/(main)/dashboard/page": "app/(main)/dashboard/page.js",
+  "/(main)/learn/[...slug]/page": "app/(main)/learn/[...slug]/page.js",
+  "/(main)/subjects/page": "app/(main)/subjects/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/api/admin/classes/route": "app/api/admin/classes/route.js",
+  "/api/admin/subjects/route": "app/api/admin/subjects/route.js",
+  "/api/admin/topics/route": "app/api/admin/topics/route.js",
+  "/api/curriculum/route": "app/api/curriculum/route.js",
+  "/api/pdf/route": "app/api/pdf/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js"
+}

@@ -1,0 +1,38 @@
+{
+  "node": {
+    "40630095df24980b62f9513a84d191bb987c04faf2": {
+      "workers": {
+        "app/(main)/learn/[...slug]/page": {
+          "moduleId": "[project]/.next-internal/server/app/(main)/learn/[...slug]/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ai/flows/generate-diagnostic-test.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/ai/flows/generate-ai-explanation.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/src/ai/flows/answer-follow-up-questions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(main)/learn/[...slug]/page": "action-browser"
+      }
+    },
+    "402f890aaad837e52b65a1c6f2e1c6daffcd48bb3f": {
+      "workers": {
+        "app/(main)/learn/[...slug]/page": {
+          "moduleId": "[project]/.next-internal/server/app/(main)/learn/[...slug]/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ai/flows/generate-diagnostic-test.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/ai/flows/generate-ai-explanation.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/src/ai/flows/answer-follow-up-questions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(main)/learn/[...slug]/page": "action-browser"
+      }
+    },
+    "40d92a9bea32e9e7f284264bd200ebdf7e66909fed": {
+      "workers": {
+        "app/(main)/learn/[...slug]/page": {
+          "moduleId": "[project]/.next-internal/server/app/(main)/learn/[...slug]/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ai/flows/generate-diagnostic-test.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/src/ai/flows/generate-ai-explanation.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/src/ai/flows/answer-follow-up-questions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(main)/learn/[...slug]/page": "action-browser"
+      }
+    }
+  },
+  "edge": {}
+}

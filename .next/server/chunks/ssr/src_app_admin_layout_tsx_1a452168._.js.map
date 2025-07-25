@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///F:/EduMateFinalAI/EduMateAI/src/app/admin/layout.tsx"],"sourcesContent":["import type { Metadata } from 'next';\r\n\r\nexport const metadata: Metadata = {\r\n  title: 'Admin Dashboard - EduMate AI',\r\n  description: 'Administration panel for EduMate AI curriculum management',\r\n};\r\n\r\nexport default function AdminLayout({\r\n  children,\r\n}: {\r\n  children: React.ReactNode;\r\n}) {\r\n  return (\r\n    <div className=\"min-h-screen bg-background\">\r\n      <main className=\"p-6\">\r\n        {children}\r\n      </main>\r\n    </div>\r\n  );\r\n}\r\n"],"names":[],"mappings":";;;;;;AAEO,MAAM,WAAqB;IAChC,OAAO;IACP,aAAa;AACf;AAEe,SAAS,YAAY,EAClC,QAAQ,EAGT;IACC,qBACE,8OAAC;QAAI,WAAU;kBACb,cAAA,8OAAC;YAAK,WAAU;sBACb;;;;;;;;;;;AAIT","debugId":null}}]
+}

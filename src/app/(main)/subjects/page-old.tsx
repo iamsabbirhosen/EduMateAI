@@ -2,20 +2,35 @@
 import { CurriculumBrowser } from '@/components/curriculum/curriculum-browser';
 import { useAuth } from '@/hooks/use-auth';
 import { useTranslation } from '@/hooks/use-translation';
-import { useCurriculumContext } from '@/context/CurriculumContext';
-import { type ClassLevel } from '@/lib/curriculum';
-import { useMemo } from 'react';
+import { getCurriculumData, type ClassLevel } from '@/lib/curriculum';
+import { useEffect, useState } from 'react';
 
 export default function SubjectsPage() {
   const { user } = useAuth();
   const { t, language } = useTranslation();
-  const { curriculum, loading, error } = useCurriculumContext();
   const isBangla = language === 'Bangla';
+  const [userClass, setUserClass] = useState<ClassLevel | undefined>(undefined);
+  const [loading, setLoading] = useState(true);
 
-  const userClass: ClassLevel | undefined = useMemo(() => 
-    curriculum.find(c => c.id === user?.class),
-    [curriculum, user?.class]
-  );
+  useEffect(() => {
+    const loadCurriculum = async () => {
+      try {
+        const curriculumData = await getCurriculumData();
+        const foundClass = curriculumData.find(c => c.id === user?.class);
+        setUserClass(foundClass);
+      } catch (error) {
+        console.error('Error loading curriculum:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (user?.class) {
+      loadCurriculum();
+    } else {
+      setLoading(false);
+    }
+  }, [user?.class]);
 
   if (loading) {
     return (
@@ -26,20 +41,6 @@ export default function SubjectsPage() {
         </div>
         <div className="flex items-center justify-center h-48">
           <div className="text-muted-foreground">Loading curriculum...</div>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="container mx-auto space-y-8">
-        <div>
-          <h1 className="text-3xl font-bold font-headline">{t('subjects.title')}</h1>
-          <p className="text-muted-foreground">{t('subjects.subtitle')}</p>
-        </div>
-        <div className="flex items-center justify-center h-48 text-red-500">
-          <div>Error loading curriculum: {error}</div>
         </div>
       </div>
     );

@@ -1,0 +1,92 @@
+/* PDF Security Styles */
+.pdf-viewer-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.pdf-viewer-container iframe {
+  border: none;
+  pointer-events: auto;
+}
+
+/* Prevent text selection and right-click on PDF */
+.pdf-viewer-container * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Disable right-click context menu */
+.pdf-viewer-container {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Prevent drag and drop */
+.pdf-viewer-container * {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none;
+}
+
+/* Hide PDF toolbar and navigation (when supported) */
+.pdf-viewer-container iframe {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.pdf-viewer-container iframe::-webkit-scrollbar {
+  display: none;
+}
+
+/* Print prevention */
+@media print {
+  .pdf-viewer-container {
+    display: none !important;
+  }
+  
+  .pdf-viewer-container::after {
+    content: "Printing is not allowed for this content.";
+    display: block;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+  }
+}
+
+/* Additional security overlays */
+.pdf-security-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* Watermark styles */
+.pdf-watermark {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.1);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  pointer-events: none;
+  z-index: 20;
+  backdrop-filter: blur(4px);
+}

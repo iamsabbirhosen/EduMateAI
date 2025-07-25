@@ -114,7 +114,7 @@ export const translations = {
     'subjects.no_class_assigned': 'আপনার প্রোফাইলে কোনো শ্রেণী বরাদ্দ করা হয়নি।',
 
     // Learn Page
-    'learn.study_materials': '学习资料',
+    'learn.study_materials': 'শিক্ষা উপকরণ',
     'learn.youtube_videos': 'সম্পর্কিত ভিডিও',
     'learn.diagnostic_test': 'ডায়াগনস্টিক পরীক্ষা',
     'learn.start_test': 'ডায়াগনস্টিক পরীক্ষা শুরু করুন',

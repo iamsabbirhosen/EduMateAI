@@ -1,5 +1,4 @@
 'use client';
-import { getTopicBySlug } from '@/lib/curriculum';
 import { notFound } from 'next/navigation';
 import {
   Breadcrumb,
@@ -21,13 +20,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import React, { useState, useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useTopic } from '@/hooks/use-topic';
 
 type View = 'materials' | 'test' | 'ai-explanation' | 'chat';
 
 export default function LearnPage({ params }: { params: Promise<{ slug: string[] }> }) {
   const [slug, setSlug] = useState<string[]>([]);
-  const [topicData, setTopicData] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const { topicData, loading, error } = useTopic(slug);
   const { t, language } = useTranslation();
   const isBangla = language === 'Bangla';
   const isMobile = useIsMobile();
@@ -41,29 +40,21 @@ export default function LearnPage({ params }: { params: Promise<{ slug: string[]
     loadParams();
   }, [params]);
 
-  useEffect(() => {
-    if (slug.length === 0) return;
-    
-    const loadTopicData = async () => {
-      try {
-        const data = await getTopicBySlug(slug);
-        setTopicData(data);
-      } catch (error) {
-        console.error('Error loading topic data:', error);
-        setTopicData(null);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadTopicData();
-  }, [slug]);
-
   if (loading) {
     return (
       <div className="container mx-auto space-y-6">
         <div className="flex items-center justify-center h-48">
           <div className="text-muted-foreground">Loading topic...</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="container mx-auto space-y-6">
+        <div className="flex items-center justify-center h-48 text-red-500">
+          <div>Error loading topic: {error}</div>
         </div>
       </div>
     );
@@ -137,13 +128,17 @@ export default function LearnPage({ params }: { params: Promise<{ slug: string[]
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href="/subjects">{isBangla ? subject.name_bn : subject.name}</Link>
+              <Link href="/subjects">
+                {isBangla ? subject.name_bn : subject.name}
+              </Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link href="/subjects">{isBangla ? chapter.name_bn : chapter.name}</Link>
+              <Link href="/subjects">
+                {isBangla ? chapter.name_bn : chapter.name}
+              </Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
@@ -152,38 +147,47 @@ export default function LearnPage({ params }: { params: Promise<{ slug: string[]
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <h1 className="text-4xl font-bold font-headline">{topicName}</h1>
-      
-      {isMobile ? (
-        <Select value={activeView} onValueChange={(value) => setActiveView(value as View)}>
-          <SelectTrigger className="w-full">
-            <SelectValue placeholder="Select a section" />
-          </SelectTrigger>
-          <SelectContent>
-            {views.map(view => (
-              <SelectItem key={view.id} value={view.id}>
-                <div className='flex items-center gap-2'>
-                  <view.icon className="h-4 w-4" />
-                  {view.label}
-                </div>
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      ) : (
-        <Tabs value={activeView} onValueChange={(value) => setActiveView(value as View)} className="w-full">
-          <TabsList className="grid w-full grid-cols-1 md:grid-cols-4">
-            {views.map(view => (
-              <TabsTrigger key={view.id} value={view.id}>
-                <view.icon className="mr-2 h-4 w-4" />
-                {view.label}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        </Tabs>
-      )}
 
-      <div className="mt-4">{renderContent()}</div>
+      <div className="space-y-4">
+        <h1 className="text-3xl font-bold font-headline">{topicName}</h1>
+        
+        {isMobile ? (
+          <div className="space-y-4">
+            <Select value={activeView} onValueChange={(value) => setActiveView(value as View)}>
+              <SelectTrigger className="w-full">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {views.map((view) => (
+                  <SelectItem key={view.id} value={view.id}>
+                    <div className="flex items-center gap-2">
+                      <view.icon className="h-4 w-4" />
+                      {view.label}
+                    </div>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            {renderContent()}
+          </div>
+        ) : (
+          <Tabs value={activeView} onValueChange={(value) => setActiveView(value as View)} className="w-full">
+            <TabsList className="grid w-full grid-cols-4">
+              {views.map((view) => (
+                <TabsTrigger key={view.id} value={view.id} className="flex items-center gap-2">
+                  <view.icon className="h-4 w-4" />
+                  <span className="hidden sm:inline">{view.label}</span>
+                </TabsTrigger>
+              ))}
+            </TabsList>
+            {views.map((view) => (
+              <TabsContent key={view.id} value={view.id} className="mt-4">
+                {activeView === view.id && renderContent()}
+              </TabsContent>
+            ))}
+          </Tabs>
+        )}
+      </div>
     </div>
   );
 }
